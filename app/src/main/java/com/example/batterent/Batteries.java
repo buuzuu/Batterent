@@ -56,7 +56,7 @@ public class Batteries extends Fragment {
         inflater.inflate(R.menu.home,menu);
         MenuItem searchItem = menu.findItem(R.id.action_search);
         SearchView searchView = (SearchView) searchItem.getActionView();
-        searchView.setQueryHint("Name");
+        searchView.setQueryHint("Battery Name");
         searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
