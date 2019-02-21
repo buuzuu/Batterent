@@ -38,7 +38,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="28dp"
         android:background="@drawable/shapeemail"
-        android:drawableLeft="@drawable/ic_smartphone"
+        android:drawableLeft="@drawable/ic_person_black_24dp"
         android:drawablePadding="10dp"
         android:hint="Username"
         android:padding="5dp"
