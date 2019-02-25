@@ -5,7 +5,7 @@ android {
     defaultConfig {
         applicationId "com.example.batterent"
         minSdkVersion 24
-        targetSdkVersion 28
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -16,6 +16,16 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    aaptOptions {
+        additionalParameters "--no-version-vectors"
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+
 }
 
 dependencies {
@@ -57,6 +67,41 @@ dependencies {
     implementation 'com.tomer:fadingtextview:2.5'
     implementation 'com.stephentuso:welcome:1.4.1'
     implementation 'de.hdodenhof:circleimageview:3.0.0'
+
+
+    implementation 'me.dm7.barcodescanner:zxing:1.9.13'
+
+
+    implementation 'com.bestsoft32.tayyab:tt-fancy-gif-dialog:1.0.2'
+
+    implementation 'com.github.IntruderShanky:Frisson:2.1.1'
+
+    /*
+     Dependencies for circle progress bar
+     */
+
+    implementation 'com.github.HotBitmapGG:RingProgressBar:V1.2.3'
+
+
+    implementation 'io.github.dvegasa:arcpointer:1.0.2'
+
+    implementation 'com.github.HotBitmapGG:CreditSesameRingView:V1.0.4'
+
+    implementation 'com.jgb.lordsaac.igb.progresslitieigb:progresslottieigb:0.0.2'
+
+    /*
+    Dependencies for Payment
+     */
+
+    implementation 'com.payumoney.core:payumoney-sdk:7.5.0'
+    implementation 'com.payumoney.sdkui:plug-n-play:1.5.0'
+    // retrofit library
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+    // Retrofit API Interceptor for Debuging
+    // compile 'com.squareup.okhttp3:logging-interceptor:3.8.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.11.0'
+    implementation 'com.squareup.okhttp3:okhttp:3.12.0'
 
 
 }

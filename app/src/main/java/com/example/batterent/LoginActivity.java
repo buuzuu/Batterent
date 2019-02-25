@@ -42,7 +42,7 @@ import butterknife.ButterKnife;
 
 public class LoginActivity extends AppCompatActivity {
 
-    EditText edtNewUser, edtNewFirstName, edtNewLastName, edtNewPassword, edtNewEmail, edtNewPhone, edtNewOTP; //for sign up
+    EditText edtNewUser, edtNewFirstName, edtNewLastName, edtNewPassword, edtNewEmail, edtNewPhone, edtNewAddress,edtNewOTP; //for sign up
     private ProgressBar progressBar;
     Button getOTP;
     AlertDialog dialog;
@@ -174,6 +174,7 @@ public class LoginActivity extends AppCompatActivity {
         edtNewLastName = sign_up_layout.findViewById(R.id.edtNewLastName);
         edtNewPhone = sign_up_layout.findViewById(R.id.editNewPhone);
         edtNewOTP = sign_up_layout.findViewById(R.id.edtNewOTP);
+        edtNewAddress = sign_up_layout.findViewById(R.id.editNewAddress);
         progressBar = sign_up_layout.findViewById(R.id.progressBar2);
         getOTP = sign_up_layout.findViewById(R.id.getOTP);
         edtNewOTP.setVisibility(View.INVISIBLE);
@@ -270,7 +271,7 @@ public class LoginActivity extends AppCompatActivity {
 
             final User user = new User(edtNewUser.getText().toString(), edtNewPassword.getText().toString(), edtNewEmail.getText().toString()
 
-                    , edtNewFirstName.getText().toString(), edtNewLastName.getText().toString(), edtNewPhone.getText().toString());
+                    , edtNewFirstName.getText().toString(), edtNewLastName.getText().toString(), edtNewPhone.getText().toString(),edtNewAddress.getText().toString());
 
 
 
@@ -307,7 +308,9 @@ public class LoginActivity extends AppCompatActivity {
                             Toast.makeText(LoginActivity.this, ""+databaseError.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     });
-                }else {
+                }
+
+                else {
                     Toast.makeText(LoginActivity.this, ""+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
