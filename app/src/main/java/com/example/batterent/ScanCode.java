@@ -1,5 +1,6 @@
 package com.example.batterent;
 
+import android.content.Intent;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
@@ -52,12 +53,14 @@ public class ScanCode extends Fragment implements ZXingScannerView.ResultHandler
 
     @Override
     public void handleResult(Result rawResult) {
-//        Log.d(TAG, "handleResult: ");
-//        Toast.makeText(getActivity(), "Contents = " + rawResult.getText() +
-//                ", Format = " + rawResult.getBarcodeFormat().toString(), Toast.LENGTH_SHORT).show();
-//
-//        Log.v(TAG, rawResult.getText()); // Prints scan results
-//        Log.v(TAG, rawResult.getBarcodeFormat().toString());
+
+        StringBuilder stringBuilder = new StringBuilder(rawResult.getText());
+
+        String modelNum = stringBuilder.substring(0,3);
+        String serialNum = stringBuilder.substring(3,6);
+        String distributorId = stringBuilder.substring(6,rawResult.getText().length());
+
+
 
 
         Handler handler = new Handler();
@@ -75,9 +78,11 @@ public class ScanCode extends Fragment implements ZXingScannerView.ResultHandler
             r.play();
         } catch (Exception e) {}
 
+
+
         new TTFancyGifDialog.Builder(getActivity())
                 .setTitle("Online Shopping")
-                .setMessage(""+rawResult.getText())
+                .setMessage("Model Selected: "+modelNum+"\n"+"Serial Number: "+serialNum+"\n"+"Distributor ID: "+distributorId)
                 .setPositiveBtnText("Ok")
                 .setPositiveBtnBackground("#22b573")
                 .setGifResource(R.drawable.proceed)      //pass your gif, png or jpg
@@ -85,6 +90,14 @@ public class ScanCode extends Fragment implements ZXingScannerView.ResultHandler
                 .OnPositiveClicked(new TTFancyGifDialogListener() {
                     @Override
                     public void OnClick() {
+
+                        Intent intent = new Intent(getActivity(),GenerateOrder2.class);
+                        intent.putExtra("modelNum",modelNum);
+                        intent.putExtra("distributorId",distributorId);
+                        intent.putExtra("productNumber",rawResult.getText());
+                        startActivity(intent);
+
+
                         Toast.makeText(getActivity(),"Ok",Toast.LENGTH_SHORT).show();
                     }
                 })

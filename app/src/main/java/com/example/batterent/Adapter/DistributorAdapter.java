@@ -67,6 +67,9 @@ public class DistributorAdapter extends RecyclerView.Adapter<DistributorAdapter.
                 @Override
                 public void onClick(View v) {
 
+                    Common.distributrPhone =distributorModelList.get(getAdapterPosition()).getPhoneNumber();
+                    Common.distributrName =distributorModelList.get(getAdapterPosition()).getFirstname();
+                    Common.distributrEmail =distributorModelList.get(getAdapterPosition()).getEmail();
 
                     Intent intent =new Intent(context,GenerateOrder.class);
                     intent.putExtra("userId",Common.currentUser.getUserName());

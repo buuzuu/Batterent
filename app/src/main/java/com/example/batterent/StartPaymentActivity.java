@@ -54,6 +54,13 @@ public class StartPaymentActivity extends AppCompatActivity {
         merchantkey="vAMuBpEx";
         merchantId ="5884494";
 
+        Log.d(TAG, "onCreate: "+phone);
+        Log.d(TAG, "onCreate: "+amount);
+        Log.d(TAG, "onCreate: "+txnid);
+        Log.d(TAG, "onCreate: "+prodname);
+        Log.d(TAG, "onCreate: "+email);
+        Log.d(TAG, "onCreate: "+firstname);
+
 
 
         if (phone!=null && amount!=null && txnid!=null && prodname!=null && email!=null && firstname!=null ) {

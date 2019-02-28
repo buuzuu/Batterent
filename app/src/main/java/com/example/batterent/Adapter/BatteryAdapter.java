@@ -117,6 +117,7 @@ public class BatteryAdapter extends RecyclerView.Adapter<BatteryAdapter.ViewHold
                 public void onClick(View v) {
                     context.startActivity(new Intent(context,Distributor.class));
                     Common.battery_model = batteryModelList.get(getAdapterPosition()).getBatteryName();
+                    Common.batteryId = imageResource[getAdapterPosition()];
                 }
             });
             textView = (TextView) itemView.findViewById(R.id.nameBattery);
