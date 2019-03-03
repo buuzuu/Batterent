@@ -5,6 +5,9 @@ public class Order {
     private String userId,distributorId,userName,product,month,amount,address,orderId;
 
 
+    public Order() {
+    }
+
     public Order(String userId, String distributorId, String userName, String product, String month, String amount, String address, String orderId) {
         this.userId = userId;
         this.distributorId = distributorId;

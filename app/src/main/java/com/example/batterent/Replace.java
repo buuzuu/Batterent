@@ -7,16 +7,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class Offers extends android.support.v4.app.Fragment {
+public class Replace extends android.support.v4.app.Fragment {
 
-    View view;
+    View   view;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
-        view = inflater.inflate(R.layout.offers_layout,container,false);
+        view = inflater.inflate(R.layout.replace_layout,container,false);
 
         return view;
+
     }
 }

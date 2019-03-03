@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
@@ -19,9 +20,16 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.batterent.Util.Common;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.stephentuso.welcome.WelcomeHelper;
 
 import butterknife.ButterKnife;
@@ -32,8 +40,10 @@ public class HomeActivity extends AppCompatActivity
     WelcomeHelper welcomeHelper;
     CircleImageView user_icon;
     Fragment selectedFragment = null;
+    TextView balance;
     private static final int ZBAR_CAMERA_PERMISSION = 1;
     BottomNavigationView bottomNavigationView;
+    DatabaseReference walletBal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +52,7 @@ public class HomeActivity extends AppCompatActivity
         ButterKnife.bind(this);
         welcomeHelper = new WelcomeHelper(this, WalkThroughActivity.class);
         welcomeHelper.show(savedInstanceState);
+        walletBal = FirebaseDatabase.getInstance().getReference("walletBal");
 
         FragmentTransaction tx = getSupportFragmentManager().beginTransaction();
         tx.replace(R.id.frameLayout, new Batteries());
@@ -66,12 +77,30 @@ public class HomeActivity extends AppCompatActivity
 
         View headerView = navigationView.getHeaderView(0);
         user_icon = headerView.findViewById(R.id.user_imageView);
+        balance = headerView.findViewById(R.id.textBalance);
         user_icon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Snackbar.make(v, "Clicked on user", Snackbar.LENGTH_SHORT).show();
             }
         });
+
+        walletBal.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                balance.setText("₹ "+dataSnapshot.getValue());
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
+
 
     }
 
@@ -125,9 +154,12 @@ public class HomeActivity extends AppCompatActivity
             bottomNavigationView.setVisibility(View.VISIBLE);
 
         } else if (id == R.id.nav_gallery) {
-            selectedFragment = new Offers();
+            selectedFragment = new MyOrders();
             bottomNavigationView.setVisibility(View.INVISIBLE);
         } else if (id == R.id.nav_slideshow) {
+
+            bottomNavigationView.setVisibility(View.INVISIBLE);
+            selectedFragment = new Replace();
 
         } else if (id == R.id.nav_manage) {
 

@@ -1,6 +1,8 @@
 package com.example.batterent.Adapter;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -10,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.batterent.GenerateOrder;
+import com.example.batterent.GenerateOrder2;
 import com.example.batterent.Model.DistributorModel;
 import com.example.batterent.R;
 import com.example.batterent.Util.Common;
@@ -20,6 +23,8 @@ public class DistributorAdapter extends RecyclerView.Adapter<DistributorAdapter.
 
     private Context context;
     private List<DistributorModel> distributorModelList;
+    String [] listItem ={"40%  upto 6.4 km","50%  upto 8.1 km","60%  upto 9.6 km","70%  upto 11.2 km","80%  upto 12.8 km","90%  upto 14.4 km",
+            "100%  upto 16.0 km"};
 
     public DistributorAdapter(Context context, List<DistributorModel> distributorModelList) {
         this.context = context;
@@ -67,6 +72,35 @@ public class DistributorAdapter extends RecyclerView.Adapter<DistributorAdapter.
                 @Override
                 public void onClick(View v) {
 
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                    builder.setTitle("Select SOH");
+                    builder.setCancelable(true);
+                    builder.setSingleChoiceItems(listItem, -1, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            if (which==0){
+                                Common.amountSOH=480;
+                            }else if(which==1){
+                                Common.amountSOH=500;
+
+                            }else if (which ==2){
+                                Common.amountSOH=520;
+
+                            }else if(which == 3){
+                                Common.amountSOH=540;
+
+                            }else  if (which == 4){
+                                Common.amountSOH=560;
+
+                            }else  if (which == 5){
+                                Common.amountSOH=580;
+
+                            }else if (which == 6){
+                                Common.amountSOH=600;
+
+                            }
+                            //
                     Common.distributrPhone =distributorModelList.get(getAdapterPosition()).getPhoneNumber();
                     Common.distributrName =distributorModelList.get(getAdapterPosition()).getFirstname();
                     Common.distributrEmail =distributorModelList.get(getAdapterPosition()).getEmail();
@@ -82,6 +116,22 @@ public class DistributorAdapter extends RecyclerView.Adapter<DistributorAdapter.
                     intent.putExtra("batteryModel",Common.battery_model);
 
                     context.startActivity(intent);
+
+
+
+
+                        }
+                    });
+                    builder.setNeutralButton("Cancel", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                        }
+                    });
+
+                    AlertDialog dialog=builder.create();
+                    dialog.show();
+
 
 
                 }

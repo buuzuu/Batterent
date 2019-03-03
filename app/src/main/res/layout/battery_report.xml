@@ -80,14 +80,14 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
             <Button
-                android:id="@+id/button2"
-                android:layout_width="132dp"
+                android:id="@+id/estKm"
+                android:layout_width="145dp"
                 android:layout_height="35dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/shapesignup"
-                android:text="Get Report"
+                android:text=""
                 android:textColor="@color/colorAccent"
                 android:textColorHighlight="#ffffff"
                 android:textColorHint="#ffffff"
@@ -95,6 +95,8 @@
                 app:layout_constraintHorizontal_bias="0.584"
                 app:layout_constraintStart_toEndOf="@+id/progress_bar_2"
                 app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+
 
 
         </android.support.constraint.ConstraintLayout>
@@ -127,7 +129,7 @@
                 app:layout_constraintHorizontal_bias="0.6"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/oldCreditSesameView"
+                app:layout_constraintTop_toTopOf="@+id/crpv"
                 app:lineLengthRatio="0.9"
                 app:lineStrokeWidth="3"
                 app:markerLengthRatio="0.1"
@@ -146,10 +148,10 @@
                 app:colorNotches="@color/colorPrimaryDark"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.6"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/oldCreditSesameView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/crpv"
                 app:lineLengthRatio="0.9"
                 app:lineStrokeWidth="3"
                 app:markerLengthRatio="0.1"
@@ -158,18 +160,39 @@
                 app:radius="200dp"
                 app:workAngle="180" />
 
-            <io.netopen.hotbitmapgg.view.OldCreditSesameView
-                android:id="@+id/oldCreditSesameView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
+            <com.timqi.sectorprogressview.ColorfulRingProgressView
+                android:id="@+id/crpv"
+                android:layout_width="236dp"
+                android:layout_height="231dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="36dp"
+                android:layout_marginTop="2dp"
                 android:layout_marginEnd="8dp"
+                app:bgColor="#e1e1e1"
+                app:fgColorEnd="#ff4800"
+                app:fgColorStart="#ffe400"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.496"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:percent="75"
+                app:startAngle="0"
+                app:strokeWidth="21dp" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="98dp"
+                android:layout_height="43dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="92dp"
+                android:layout_marginEnd="8dp"
+                android:text="75"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/crpv" />
 
 
         </android.support.constraint.ConstraintLayout>
