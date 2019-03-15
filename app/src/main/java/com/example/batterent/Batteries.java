@@ -1,6 +1,5 @@
 package com.example.batterent;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -22,13 +21,12 @@ import com.example.batterent.Model.BatteryModel;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Batteries extends Fragment {
+public class Batteries extends Fragment  {
 
     View view;
     RecyclerView recyclerView;
     List<BatteryModel> list = new ArrayList<>();
     BatteryAdapter adapter;
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -48,6 +46,7 @@ public class Batteries extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+
 
     }
 
@@ -76,34 +75,26 @@ public class Batteries extends Fragment {
 
     private void setdata() {
 
-        list.add(new BatteryModel("Hritik", "#09A9FF"));
-        list.add(new BatteryModel("Parul", "#3E51B1"));
-        list.add(new BatteryModel("Indeer", "#673BB7"));
-        list.add(new BatteryModel("Vika", "#4BAA50"));
-        list.add(new BatteryModel("Harpreet", "#F94336"));
-        list.add(new BatteryModel("Sittu", "#0A9B88"));
-        list.add(new BatteryModel("Mayank", "#09A9FF"));
-        list.add(new BatteryModel("Suhani", "#3E51B1"));
-        list.add(new BatteryModel("Japan", "#673BB7"));
-        list.add(new BatteryModel("India", "#4BAA50"));
-        list.add(new BatteryModel("Italy", "#F94336"));
-        list.add(new BatteryModel("Georgia", "#0A9B88"));
-        list.add(new BatteryModel("Perth", "#09A9FF"));
-        list.add(new BatteryModel("Berlin", "#3E51B1"));
-        list.add(new BatteryModel("Belgium", "#673BB7"));
-        list.add(new BatteryModel("Zurich", "#4BAA50"));
-        list.add(new BatteryModel("Goa", "#F94336"));
-        list.add(new BatteryModel("Delhi", "#0A9B88"));
-        list.add(new BatteryModel("Michigan", "#09A9FF"));
-        list.add(new BatteryModel("London", "#3E51B1"));
-        list.add(new BatteryModel("Lagos", "#673BB7"));
-        list.add(new BatteryModel("Africa", "#4BAA50"));
-        list.add(new BatteryModel("Canada", "#F94336"));
-        list.add(new BatteryModel("Mexico", "#0A9B88"));
-        list.add(new BatteryModel("Jaipur", "#09A9FF"));
-        list.add(new BatteryModel("Mohali", "#3E51B1"));
-        list.add(new BatteryModel("Punjab", "#673BB7"));
+        list.add(new BatteryModel("A1B", "R.drawable.ba1"));
+        list.add(new BatteryModel("A2B", "R.drawable.ba2"));
+        list.add(new BatteryModel("A3B", "R.drawable.ba3"));
+        list.add(new BatteryModel("A4B", "R.drawable.ba4"));
+        list.add(new BatteryModel("A5B", "R.drawable.ba5"));
+        list.add(new BatteryModel("A6B", "R.drawable.ba6"));
+        list.add(new BatteryModel("A7B", "R.drawable.ba7"));
+        list.add(new BatteryModel("A8B", "R.drawable.ba8"));
+        list.add(new BatteryModel("A9B", "R.drawable.ba9"));
+        list.add(new BatteryModel("A10B", "R.drawable.ba10"));
+        list.add(new BatteryModel("A11B", "R.drawable.ba11"));
+        list.add(new BatteryModel("A12B", "R.drawable.ba12"));
+        list.add(new BatteryModel("A13B", "R.drawable.ba13"));
+
+
+
 
 
     }
+
+
+
 }

@@ -4,11 +4,11 @@ public class BatteryModel {
 
 
     public String batteryName;
-    public String color;
+    public String batteryImage;
 
-    public BatteryModel(String batteryName, String color) {
+    public BatteryModel(String batteryName, String batteryImage) {
         this.batteryName = batteryName;
-        this.color = color;
+        this.batteryImage = batteryImage;
     }
 
     public String getBatteryName() {
@@ -19,11 +19,11 @@ public class BatteryModel {
         this.batteryName = batteryName;
     }
 
-    public String getColor() {
-        return color;
+    public String getBatteryImage() {
+        return batteryImage;
     }
 
-    public void setColor(String color) {
-        this.color = color;
+    public void setBatteryImage(String batteryImage) {
+        this.batteryImage = batteryImage;
     }
 }
